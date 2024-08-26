@@ -24,4 +24,6 @@ public class Owner {
     private String localization;
     @OneToMany(mappedBy = "owner")
     private List<Car> cars = new ArrayList<>();
+    @OneToMany(mappedBy = "author")
+    private List<Post> posts = new ArrayList<>();
 }

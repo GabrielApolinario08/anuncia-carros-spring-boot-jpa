@@ -19,4 +19,7 @@ public class Post {
     @Column(nullable = false)
     private LocalDateTime date;
     private String title;
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private Owner author;
 }
