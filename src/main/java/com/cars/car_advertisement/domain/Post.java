@@ -22,4 +22,7 @@ public class Post {
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private Owner author;
+    @OneToOne
+    @JoinColumn(name = "car_id", unique = true)
+    private Car car;
 }

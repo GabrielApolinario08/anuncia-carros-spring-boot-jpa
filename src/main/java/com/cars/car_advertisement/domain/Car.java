@@ -26,4 +26,6 @@ public class Car {
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private Owner owner;
+    @OneToOne(mappedBy = "car", cascade = CascadeType.ALL)
+    private Post post;
 }
