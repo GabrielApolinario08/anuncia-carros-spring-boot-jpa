@@ -23,4 +23,7 @@ public class Car {
     private Integer year;
     private Integer travelledDistance;
     private String color;
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private Owner owner;
 }

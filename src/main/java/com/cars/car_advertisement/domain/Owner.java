@@ -3,6 +3,9 @@ package com.cars.car_advertisement.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "owner")
 @Getter
@@ -19,4 +22,6 @@ public class Owner {
     private String telephoneNumber;
     private String email;
     private String localization;
+    @OneToMany(mappedBy = "owner")
+    private List<Car> cars = new ArrayList<>();
 }
