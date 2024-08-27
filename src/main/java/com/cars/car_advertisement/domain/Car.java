@@ -3,6 +3,9 @@ package com.cars.car_advertisement.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "car")
 @Getter
@@ -28,4 +31,6 @@ public class Car {
     private Owner owner;
     @OneToOne(mappedBy = "car", cascade = CascadeType.ALL)
     private Post post;
+    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Image> images = new ArrayList<>();
 }
