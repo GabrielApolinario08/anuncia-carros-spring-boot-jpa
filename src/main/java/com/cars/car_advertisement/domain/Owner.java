@@ -1,5 +1,6 @@
 package com.cars.car_advertisement.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,6 +23,7 @@ public class Owner {
     private String telephoneNumber;
     private String email;
     private String localization;
+    @JsonIgnore
     @OneToMany(mappedBy = "owner")
     private List<Car> cars = new ArrayList<>();
     @OneToMany(mappedBy = "author")
