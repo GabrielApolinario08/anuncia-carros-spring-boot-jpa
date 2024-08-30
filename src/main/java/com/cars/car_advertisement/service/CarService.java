@@ -15,4 +15,7 @@ public class CarService {
     public List<CarDTO> findAll() {
         return repository.findAll().stream().map(CarDTO::new).toList();
     }
+    public CarDTO findById(Long id) {
+        return new CarDTO(repository.findById(id).get());
+    }
 }
