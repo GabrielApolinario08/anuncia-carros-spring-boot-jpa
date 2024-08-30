@@ -24,18 +24,6 @@ public class CarDTO {
     Integer year;
     Integer travelledDistance;
     String color;
-    Owner owner;
+    Long ownerId;
     List<Image> images;
-    public CarDTO(Car car) {
-        id = car.getId();
-        model = car.getModel();
-        mark = car.getMark();
-        price = car.getPrice();
-        description = car.getDescription();
-        year = car.getYear();
-        travelledDistance = car.getTravelledDistance();
-        color = car.getColor();
-        owner = car.getOwner();
-        images = car.getImages();
-    }
 }
