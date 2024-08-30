@@ -30,5 +30,6 @@ public class Owner {
     private List<Car> cars = new ArrayList<>();
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     @Builder.Default
+    @JsonIgnore
     private List<Post> posts = new ArrayList<>();
 }

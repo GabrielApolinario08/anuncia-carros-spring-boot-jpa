@@ -1,5 +1,6 @@
 package com.cars.car_advertisement.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -31,6 +32,7 @@ public class Car {
     @JoinColumn(name = "owner_id")
     private Owner owner;
     @OneToOne(mappedBy = "car", cascade = CascadeType.ALL)
+    @JsonIgnore
     private Post post;
     @OneToMany(mappedBy = "car", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Builder.Default

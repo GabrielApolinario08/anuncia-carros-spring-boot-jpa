@@ -1,5 +1,6 @@
 package com.cars.car_advertisement.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,5 +19,6 @@ public class Image {
     private String url;
     @ManyToOne
     @JoinColumn(name = "car_id")
+    @JsonIgnore
     private Car car;
 }
