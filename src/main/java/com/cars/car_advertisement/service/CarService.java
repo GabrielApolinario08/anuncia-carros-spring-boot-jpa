@@ -29,4 +29,8 @@ public class CarService {
         Car car = new CarMapper(ownerRepository).toCar(dto);
         repository.save(car);
     }
+
+    public void deleteById(Long id) {
+        repository.deleteById(id);
+    }
 }

@@ -29,4 +29,10 @@ public class CarController {
         service.insert(car);
         return ResponseEntity.ok().build();
     }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
+        service.deleteById(id);
+        return ResponseEntity.ok().build();
+    }
 }
