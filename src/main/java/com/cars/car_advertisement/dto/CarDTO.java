@@ -11,19 +11,6 @@ import lombok.Setter;
 
 import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-public class CarDTO {
-    Long id;
-    String model;
-    String mark;
-    Double price;
-    String description;
-    Integer year;
-    Integer travelledDistance;
-    String color;
-    Long ownerId;
-    List<Image> images;
+public record CarDTO (String model,  String mark, Double price, String description, Integer year, Integer travelledDistance,  String color, Long ownerId) {
+
 }

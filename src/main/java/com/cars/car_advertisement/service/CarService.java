@@ -18,11 +18,11 @@ public class CarService {
     @Autowired
     private OwnerRepository ownerRepository;
 
-    public List<CarDTO> findAll() {
-        return repository.findAll().stream().map(new CarMapper(ownerRepository)::toCarDTO).toList();
+    public List<Car> findAll() {
+        return repository.findAll();
     }
-    public CarDTO findById(Long id) {
-        return new CarMapper(ownerRepository).toCarDTO(repository.findById(id).get());
+    public Car findById(Long id) {
+        return repository.findById(id).get();
     }
 
     public void insert(CarDTO dto) {
@@ -32,5 +32,22 @@ public class CarService {
 
     public void deleteById(Long id) {
         repository.deleteById(id);
+    }
+
+    public Car uptade(Car car) {
+        Car obj = findById(car.getId());
+        updateData(car, obj);
+        repository.save(obj);
+        return obj;
+    }
+
+    public void updateData(Car car, Car obj) {
+        obj.setModel(car.getModel());
+        obj.setMark(car.getMark());
+        obj.setPrice(car.getPrice());
+        obj.setDescription(car.getDescription());
+        obj.setYear(car.getYear());
+        obj.setTravelledDistance(car.getTravelledDistance());
+        obj.setColor(car.getColor());
     }
 }

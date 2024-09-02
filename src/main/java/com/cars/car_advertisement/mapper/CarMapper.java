@@ -20,15 +20,12 @@ public class CarMapper {
     }
     public CarDTO toCarDTO(Car car) {
         Long ownerId = car.getOwner().getId();
-        return new CarDTO(car.getId(), car.getModel(), car.getMark(), car.getPrice(), car.getDescription(), car.getYear(), car.getTravelledDistance(), car.getColor(), ownerId, car.getImages());
+        return new CarDTO(car.getModel(), car.getMark(), car.getPrice(), car.getDescription(), car.getYear(), car.getTravelledDistance(), car.getColor(), ownerId);
     }
 
     public Car toCar(CarDTO dto) {
-        Owner owner = ownerRepository.findById(dto.getOwnerId()).get();
+        Owner owner = ownerRepository.findById(dto.ownerId()).get();
 
-        Car car = new Car(null, dto.getModel(), dto.getMark(), dto.getPrice(), dto.getDescription(), dto.getYear(), dto.getTravelledDistance(), dto.getColor(), owner, null, dto.getImages());
-        car.getImages().get(0).setCar(car);
-        car.getImages().forEach(i -> i.setCar(car));
-        return car;
+        return new Car(null, dto.model(), dto.mark(), dto.price(), dto.description(), dto.year(), dto.travelledDistance(), dto.color(), owner, null, null);
     }
 }
