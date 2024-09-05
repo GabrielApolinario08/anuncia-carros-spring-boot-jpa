@@ -17,9 +17,6 @@ public class CarController {
     @Autowired
     private CarService service;
 
-    @Autowired
-    private OwnerRepository ownerRepository;
-
     @GetMapping
     public ResponseEntity<List<Car>> findAll() {
         return ResponseEntity.ok().body(service.findAll());
@@ -44,9 +41,6 @@ public class CarController {
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<Car> update(@PathVariable Long id, @RequestBody CarDTO dto) {
-        Car car = new CarMapper(ownerRepository).toCar(dto);
-        car.setId(id);
-        return ResponseEntity.ok().body(service.uptade(car));
-
+        return ResponseEntity.ok().body(service.uptade(id, dto));
     }
 }
