@@ -31,4 +31,15 @@ public class OwnerController {
         service.insert(dto);
         return ResponseEntity.ok().build();
     }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Owner> update(@PathVariable Long id, @RequestBody OwnerDTO dto) {
+        return ResponseEntity.ok().body(service.update(id, dto));
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
+        service.deleteById(id);
+        return ResponseEntity.ok().build();
+    }
  }

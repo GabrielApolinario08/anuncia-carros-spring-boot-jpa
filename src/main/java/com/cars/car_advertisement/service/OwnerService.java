@@ -26,4 +26,23 @@ public class OwnerService {
         Owner owner = OwnerMapper.INSTANCE.toOwner(dto);
         repository.save(owner);
     }
+
+
+    public Owner update(Long id, OwnerDTO dto) {
+        Owner obj = findById(id);
+        updateData(obj, dto);
+        repository.save(obj);
+        return obj;
+    }
+
+    private void updateData(Owner obj, OwnerDTO owner) {
+        obj.setName(owner.name());
+        obj.setEmail(owner.email());
+        obj.setTelephoneNumber(owner.telephoneNumber());
+        obj.setLocalization(owner.localization());
+    }
+
+    public void deleteById(Long id) {
+        repository.deleteById(id);
+    }
 }
