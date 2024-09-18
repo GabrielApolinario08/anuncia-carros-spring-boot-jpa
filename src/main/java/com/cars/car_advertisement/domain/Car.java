@@ -30,6 +30,7 @@ public class Car {
     private String color;
     @ManyToOne
     @JoinColumn(name = "owner_id")
+    @JsonIgnore
     private Owner owner;
     @OneToOne(mappedBy = "car", cascade = CascadeType.ALL)
     @JsonIgnore
